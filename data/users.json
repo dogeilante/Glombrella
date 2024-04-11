@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "display_name": "DiamondThumb",
+      "user_address": "BC1YLiJUUwY9Q5cbT1XCSVTp53piLWM3o1uCWvU8wAvG1wUVvNbupij",
+      "gloms": ["glombrella", "ducks_inc"]
+      ,"badges":[]
+    },
+    {
+        "display_name":"Sarge"
+        ,"user_address":"BC1YLgDy5uARFwzWwd87R1rNeNgzxcXD6Xu3SUNJtmMcBc16CviYKWL"
+        ,"gloms":["glombrella", "ducks_inc"]
+        ,"badges":[]
+    },
+    {
+        "display_name":"eryeleyn"
+        ,"user_address":"BC1YLiNg3nb5wGdQtEUpCowqFMPT3Co35PtripCLAeSDB4UnxMCADkc"
+        ,"gloms":["glombrella", "ducks_inc"]
+        ,"badges":[]
+    },
+    {
+      "display_name": "degen_doge",
+      "user_address": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA",
+      "public_key": "",
+      "duo_authentication": "other social media account",
+      "badges": [
+        {
+          "badge_name": "Waddle 1 Contributor",
+          "date": "4/1/2024 4:20:69 AM",
+          "contributions": {
+            "proposals_submitted": "5",
+            "proposals_resolved": 6,
+            "num_hours": 10,
+            "investment": 0
+          }
+        },
+        {
+          "badge_name": "Glom Investor",
+          "contributions": {
+            "proposals_submitted": "5",
+            "proposals_resolved": 6,
+            "votes_given": 100,
+            "votes_delegated": 200,
+            "num_hours": 0
+          }
+        }
+      ],
+      
+      "public": {
+        "other_socials": {},
+        "public_nfts": {},
+        "groups": {}
+      },
+      "private": {
+        "irl_name": "Deraj",
+        "permissions_settings": "",
+        "friends_list": {},
+        "locked_content": {},
+        "secret_nfts": {},
+        "communities": {},
+        "photos": {},
+        "friends": {}
+      }
+    }
+  ]
+}

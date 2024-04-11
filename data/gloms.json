@@ -1,0 +1,32 @@
+{
+    "glom_id": 0,
+    "glom_title":"Core",
+    "users":
+    [ 
+        {
+            "display_name": "DiamondThumb",
+            "user_id": "BC1YLiJUUwY9Q5cbT1XCSVTp53piLWM3o1uCWvU8wAvG1wUVvNbupij"
+        },
+        {
+            "display_name": "degen_doge",
+            "user_id": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA"
+        },
+        {
+            "display_name": "nader",
+            "user_id": "BC1YLhyuDGeWVgHmh3UQEoKstda525T1LnonYWURBdpgWbFBfRuntP5"
+        }
+    ],
+    "children": [
+        {
+            "glom_id": 1,
+            "glom_title": "Investors",
+            "users": 
+            [
+                {
+                    "display_name": "Sarge",
+                    "user_id":"BC1YLgqtdwirdm2K99w5yjRyUvCFgwB7jSFRTkBiMi6sVd3U94J29n1"
+                }
+            ]
+        }
+    ]
+}
