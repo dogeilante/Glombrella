@@ -6,7 +6,7 @@ const fs = require('fs');
 
 // Import existing data
 const superglom = require('./data/gloms.json');
-const { error } = require('console');
+const { error, log } = require('console');
 users = require('./data/users.json')
 proposals = require('./data/proposals.json')
 
@@ -19,26 +19,37 @@ var proposal_counter = 0;
  */
 main()
 function main() {
-    console.log(superglom.users[0])
-    console.log(users)
     clearProposals()
+
     submitProposal("The ducks will rule the world", "degen_doge")
     submitProposal("starterFile - v1 approve to place on chain", submittor="DiamondThumb")
     submitProposal("let @DiamondThumb put first wave of code blocks in TheLibrary - without group vetting", "DiamondThumb")
     submitProposal("set up OpenFund for Glombrella-1 - @degen_doge set it up .. shared seed(for now). Glombrella-2 will be with LOST seed", "DiamondThumb")
     submitProposal("camelCase or snake_case for variable names", "degen_doge")
     
-    submit_vote(0, "degen_doge", 1)
-    submit_vote(0, "DiamondThumb", 1)
-    submit_vote(0, "", 1)
+    submit_vote(0, "degen_doge", "yes")
+    submit_vote(0, "DiamondThumb", "yes")
+    submit_vote(0, "ArnoudvanderPlas", "yes")
+
+    yield_decision(0)
 }
 
 function giveBadge(user_id,) {
-
+    
 }
 
-function yield_decision() {
+function yield_decision(proposal_id) {
+    proposal_index = getProposalIndex(proposal_id)
 
+    var vote_tallies = {};
+    for (choice of proposals[proposal_index].choices) vote_tallies[choice] = 0
+    // STOP THE COUNTTTTTTT!!!!!!
+    for (vote of proposals[proposal_index].votes) {
+        vote_tallies[vote.user_vote]++
+    }
+    proposals[proposal_index].status = COMPLETED;
+    console.log(`The users have voted on proposal id ${proposal_index}:`);
+    console.log(vote_tallies)
 }
 
 /**
@@ -49,8 +60,8 @@ function yield_decision() {
  * @param {*} submittor_addr 
  * @returns 
  */
-function submit_vote(proposal_id, submittor, choice, submittor_addr=null) {
-        // Parameter Validation: allow user to submit username or address
+function submit_vote(proposal_id, submittor, user_choice, submittor_addr=null) {
+    // Parameter Validation: allow user to submit username or address
     if (submittor_addr === null) {
         submittor_addr = getUserId(submittor)
         if (submittor_addr === null) {
@@ -58,30 +69,20 @@ function submit_vote(proposal_id, submittor, choice, submittor_addr=null) {
             return;
         }
     }
-    console.log(submittor_addr)
-    var proposal_index = -1;
-    // Find targeted proposal
-    for (i =0; i < proposals.length; i++) {
-        if (proposals[i].proposal_id === proposal_id) {
-            proposal_index = proposals[i].proposal_id
-            break;
-        } 
-    }
+    proposal_index = getProposalIndex(proposal_id)
     // Validation
     if (proposal_index === -1) logError("submit_vote", "ERROR: could not find proposal")
+    
     // Log vote
-
     proposals[i].votes.push(
         {
             display_name: submittor,
             user_addr: submittor_addr,
-            user_vote: 1
+            user_vote: user_choice
         }
     )
     fs.writeFileSync('./data/proposals.json', JSON.stringify(proposals, null, 2));
 }
-
-
 
 
 /**
@@ -132,6 +133,19 @@ function logError(method_name, error) {
     console.log("ERROR in method: " + method_name + "\n" + error )
 
 }
+//=====================Proposal helpers==================
+function getProposalIndex(proposal_id) {
+    var proposal_index = -1;
+    // Find targeted proposal
+    for (i =0; i < proposals.length; i++) {
+        if (proposals[i].proposal_id === proposal_id) {
+            proposal_index = proposals[i].proposal_id
+            break;
+        } 
+    }
+    return proposal_index;
+}
+//======================= Glom stuff==================
 /** find ID of glom
  * Recursive method to find the id of the glom a user submits
  * @param {*} glom 
@@ -154,7 +168,7 @@ function findGlomId(glom, curr_addr) {
         return 0;
     }
 }
-
+//=====================User stuff==============
 function validateUser() {
 
 }

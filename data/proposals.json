@@ -10,8 +10,19 @@
     ],
     "votes": [
       {
+        "display_name": "degen_doge",
         "user_addr": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA",
-        "user_vote": 1
+        "user_vote": "yes"
+      },
+      {
+        "display_name": "DiamondThumb",
+        "user_addr": "BC1YLiJUUwY9Q5cbT1XCSVTp53piLWM3o1uCWvU8wAvG1wUVvNbupij",
+        "user_vote": "yes"
+      },
+      {
+        "display_name": "ArnoudvanderPlas",
+        "user_addr": "BC1YLgo93UkfMCf6o5Z7H3Ckgvcg7BbSsHa6UCaTXsczqnEuGW9qWwY",
+        "user_vote": "yes"
       }
     ],
     "decision": 0,
