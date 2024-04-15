@@ -1,3 +1,72 @@
 [
-
+  {
+    "proposal_id": 0,
+    "assigned_glom": 0,
+    "submittor": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA",
+    "statement": "The ducks will rule the world",
+    "choices": [
+      "yes",
+      "no"
+    ],
+    "votes": [
+      {
+        "user_addr": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA",
+        "user_vote": 1
+      }
+    ],
+    "decision": 0,
+    "expiration_date": "function now() { [native code] }5"
+  },
+  {
+    "proposal_id": 1,
+    "assigned_glom": 0,
+    "submittor": "BC1YLiJUUwY9Q5cbT1XCSVTp53piLWM3o1uCWvU8wAvG1wUVvNbupij",
+    "statement": "starterFile - v1 approve to place on chain",
+    "choices": [
+      "yes",
+      "no"
+    ],
+    "votes": [],
+    "decision": 0,
+    "expiration_date": "function now() { [native code] }5"
+  },
+  {
+    "proposal_id": 2,
+    "assigned_glom": 0,
+    "submittor": "BC1YLiJUUwY9Q5cbT1XCSVTp53piLWM3o1uCWvU8wAvG1wUVvNbupij",
+    "statement": "let @DiamondThumb put first wave of code blocks in TheLibrary - without group vetting",
+    "choices": [
+      "yes",
+      "no"
+    ],
+    "votes": [],
+    "decision": 0,
+    "expiration_date": "function now() { [native code] }5"
+  },
+  {
+    "proposal_id": 3,
+    "assigned_glom": 0,
+    "submittor": "BC1YLiJUUwY9Q5cbT1XCSVTp53piLWM3o1uCWvU8wAvG1wUVvNbupij",
+    "statement": "set up OpenFund for Glombrella-1 - @degen_doge set it up .. shared seed(for now). Glombrella-2 will be with LOST seed",
+    "choices": [
+      "yes",
+      "no"
+    ],
+    "votes": [],
+    "decision": 0,
+    "expiration_date": "function now() { [native code] }5"
+  },
+  {
+    "proposal_id": 4,
+    "assigned_glom": 0,
+    "submittor": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA",
+    "statement": "camelCase or snake_case for variable names",
+    "choices": [
+      "yes",
+      "no"
+    ],
+    "votes": [],
+    "decision": 0,
+    "expiration_date": "function now() { [native code] }5"
+  }
 ]
