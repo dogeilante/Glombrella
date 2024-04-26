@@ -1,6 +1,6 @@
-{
+[{
     "glom_id": 0,
-    "glom_title":"Core",
+    "glom_title":"EthosSphere",
     "users":
     [ 
         {
@@ -8,8 +8,7 @@
             "user_addr": "BC1YLiJUUwY9Q5cbT1XCSVTp53piLWM3o1uCWvU8wAvG1wUVvNbupij"
         },
         {
-            "display_name": "degen_doge",
-            "user_addr": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA"
+            
         },
         {
             "display_name": "ArnoudvanderPlas",
@@ -19,9 +18,13 @@
     "children": [
         {
             "glom_id": 1,
-            "glom_title": "Producers",
+            "glom_title": "",
             "users": 
             [
+                {
+                    "display_name": "degen_doge",
+                    "user_addr": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA"
+                },
                 {
                     "display_name": "Sarge",
                     "user_addr":"BC1YLgqtdwirdm2K99w5yjRyUvCFgwB7jSFRTkBiMi6sVd3U94J29n1"
@@ -31,6 +34,63 @@
                     "user_addr": "BC1YLiNg3nb5wGdQtEUpCowqFMPT3Co35PtripCLAeSDB4UnxMCADkc"
                 }
             ]
+        },
+        {
+            "glom_id": 1,
+            "glom_title": ""
         }
     ]
+},
+
+
+{
+    "glom_id": 0,
+    "glom_title":"rDAO",
+    "users":
+    [ 
+        {
+            "display_name": "DiamondThumb",
+            "user_addr": "BC1YLiJUUwY9Q5cbT1XCSVTp53piLWM3o1uCWvU8wAvG1wUVvNbupij"
+        },
+        {
+            
+        },
+        {
+            "display_name": "ArnoudvanderPlas",
+            "user_addr": "BC1YLgo93UkfMCf6o5Z7H3Ckgvcg7BbSsHa6UCaTXsczqnEuGW9qWwY"
+        }
+    ],
+    "children": [
+        {
+            "glom_id": 1,
+            "glom_title": "",
+            "users": 
+            [
+                {
+                    "display_name": "degen_doge",
+                    "user_addr": "BC1YLiWxwFDrEjccYmUPR5sizydUHdaJLCrUuYeaLZ5DHTJtpUciAJA"
+                },
+                {
+                    "display_name": "Sarge",
+                    "user_addr":"BC1YLgqtdwirdm2K99w5yjRyUvCFgwB7jSFRTkBiMi6sVd3U94J29n1"
+                },
+                {
+                    "display_name": "eryeleyn",
+                    "user_addr": "BC1YLiNg3nb5wGdQtEUpCowqFMPT3Co35PtripCLAeSDB4UnxMCADkc"
+                }
+            ]
+        },
+        {
+            "glom_id": 1,
+            "glom_title": ""
+        }
+    ]
+
 }
+
+
+
+
+]
+
+

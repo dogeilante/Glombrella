@@ -6,13 +6,16 @@ const fs = require('fs');
 
 // Import existing data
 const superglom = require('./data/gloms.json');
+//superglom = superglom[0];
+glomerates = [];
+
 const { error, log } = require('console');
+const { json } = require('stream/consumers');
 users = require('./data/users.json')
 proposals = require('./data/proposals.json')
 
 // Global variables
 var proposal_counter = 0;
-
 
 /**================================ Program start =========================================
  *
@@ -20,6 +23,34 @@ var proposal_counter = 0;
 main()
 function main() {
     clearProposals()
+
+    init_rDAO("rDAO", "DiamondThumb")
+    init_rDAO("EthosSphere", "That70sRobot")
+    init_rDAO("ducks_inc", "degen_doge")
+    // level 0
+    add_user(glomerates[0], "degen_doge")
+    add_user(glomerates[0], "That70sRobot")
+    // level 1
+    add_user(glomerates[0], "Wukong")
+    add_user(glomerates[0], "ArnoudVanDerPlas")
+    add_user(glomerates[0], "ElrickErikose")
+    add_user(glomerates[0], "Carry2web")
+    add_user(glomerates[0], "Valtran")
+    add_user(glomerates[0], "NathanWells")
+    add_user(glomerates[0], "Mcmarsh")
+    add_user(glomerates[0], "Tangy")
+    add_user(glomerates[0], "StarGeezer")
+    //fs.writeFileSync('./data/test.json', JSON.stringify(glomerates[0], null, 2));
+    // level 2
+    add_user(glomerates[0], "ShadyAcres")
+    add_user(glomerates[0], "EdoKoevoet")
+    add_user(glomerates[0], "RandhirH")
+    add_user(glomerates[0], "1dolinski")
+    fs.writeFileSync('./data/test.json', JSON.stringify(glomerates[0], null, 2));
+
+    add_user
+
+    return;
 
     submitProposal("The ducks will rule the world", "degen_doge")
     submitProposal("starterFile - v1 approve to place on chain", submittor="DiamondThumb")
@@ -32,10 +63,142 @@ function main() {
     submit_vote(0, "ArnoudvanderPlas", "yes")
 
     yield_decision(0)
+
+    init_rDAO("Decentology", "degen_doge")
 }
 
-function giveBadge(user_id,) {
-    
+function printDAORecursive(root_glom) {
+    for(username of root_glom.users) {
+        console.log(username);
+    }
+    q = [root_glom]
+
+    while(glom = q.pop()) {
+        print()
+    }
+}
+/**
+ * Create rDAO
+ */
+function init_rDAO(title, user_addr) {
+    glom = {
+        title: title,
+        users: [
+            user_addr
+        ],
+        "children": [
+        ]
+    }
+    glomerates[glomerates.length] = glom;
+}
+function add_glom(glom) {
+    glom.children.push({
+        title: "X",
+        users: [],
+        children: []
+    })
+}
+/**
+ * Adds user in BREADTH first order. 
+ * https://www.studytonight.com/post/insertionadding-a-new-node-in-a-binary-tree-data-structure
+ * @param {*} root_glom 
+ * @param {*} user_addr 
+ * @returns 
+ */
+function add_user(root_glom, user_addr) {
+    queue = []
+    queue.push(root_glom)
+    // For tracking end of loop
+    isAdded = false
+    // In case all nodes are at capacity, we will need to add a new glom.
+    first_nonfull_glom = root_glom
+    foundFirstChildless = false;
+    while(!isAdded) {
+        // BASE CASE 0: queue is empty, add and push a new glom.
+        if (queue.length == 0) {
+            add_glom(first_nonfull_glom);
+            queue.push(first_nonfull_glom.children[first_nonfull_glom.children.length-1]);
+        }
+        // Remove FIRST element of queue
+        glom = queue.shift()
+        // BASE CASE 1: current glom is not at capacity
+        // SOLUTION: add user!
+        if (glom.users.length < 3) {
+            glom.users[glom.users.length] = user_addr
+            isAdded = true;
+        // Recursive cases: push children gloms
+        } else {  
+            for (glom_child of glom.children) {
+                queue.push(glom_child)
+            }
+            if (glom.children.length != 3 && !foundFirstChildless) {
+                first_nonfull_glom = glom;
+                foundFirstChildless = true;
+                // continue on, to ensure existing gloms are filled before creating new glom
+            }
+        } 
+    }
+    return 1;
+}
+
+function add_user2(glom, user_addr) {
+    console.log(glom.users.length);
+    // BASE CASE 1: current glom is not at capacity
+    // SOLUTION: add user!
+    if (glom.users.length < 3) {
+        glom.users[glom.users.length] = user_addr
+
+    // BASE CASE 2: There are no children gloms
+    } else if (glom.children === 0) {
+        add_glom(glom, user_addr)
+
+    // BASE CASE 3: child glom is not filled out
+    // SOLUTION: add_user
+    } else if (glom.children[glom.children.length-1] != 3) {
+        add_user(glom.children[glom.children.length-1])
+
+    // BASE CASE 4: must add child glom 
+    } else if (glom.children.length != 3) {
+        add_glom(glom, user_addr)
+
+    // RECURSIVE CASE: Entire row is filled out
+    } else {
+        add_user(child_glom)
+    }
+    // return success! we added a user. Break out of recursion
+    return 1;
+}
+
+
+/**============================= Test methods ========================================
+ * 
+ * 
+*/
+function testProposals() {
+    // unanimous decision
+
+    // 
+
+}
+
+/**==============================Core features============================
+ * 
+ */
+
+/**
+ * 
+ * @param {} user_id 
+ */
+function giveBadge(username, user_addr=null, DAO_hash, badge_name, contributions) {
+    // Parameter Validation: allow user to submit username or address
+    if (user_addr === null) {
+        user_addr = getUserId(username)
+        if (user_addr === null) {
+            logError("submit_vote", "Error: Submittor ID is null")
+            return;
+        }
+    }
+
 }
 
 function yield_decision(proposal_id) {
